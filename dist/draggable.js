@@ -11,6 +11,7 @@ const draggable = (ele) => {
     let currentY = 0;
     let initialX = 0;
     let initialY = 0;
+    ele.style.cursor = 'grab';
     const onMousedown = (e) => {
         if (e.type === 'touchstart') {
             initialX = e.touches[0].clientX - offsetX;
@@ -24,6 +25,7 @@ const draggable = (ele) => {
             window.addEventListener('mousemove', onMouseMove);
             window.addEventListener('mouseup', onMouseUp);
         }
+        ele.style.cursor = 'grabbing';
     };
     const onMouseMove = (e) => {
         if (e.type === 'touchmove') {
@@ -49,6 +51,7 @@ const draggable = (ele) => {
             window.removeEventListener('mousemove', onMouseMove);
             window.removeEventListener('mouseup', onMouseUp);
         }
+        ele.style.cursor = 'grab';
     };
     ele.addEventListener('mousedown', onMousedown);
     ele.addEventListener('touchstart', onMousedown);
