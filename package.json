@@ -1,8 +1,15 @@
 {
   "name": "@tenryu/performance-checker",
   "version": "0.1.0",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +22,8 @@
     "url": "https://github.com/Tenryu/performance-checker/issues"
   },
   "homepage": "https://github.com/Tenryu/performance-checker#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "typescript": "^4.4.3"
+  }
 }
