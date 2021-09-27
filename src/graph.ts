@@ -1,5 +1,5 @@
 import * as c3 from 'c3';
-import '../node_modules/c3/c3.css';
+import './c3.css';
 
 export type GraphData = { [key: string]: number[] };
 
