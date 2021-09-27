@@ -12,6 +12,8 @@ export default class PerformanceChecker {
     initialize(): void;
     start(): void;
     end(): void;
+    show(): void;
+    hide(): void;
     private removeDom;
     private onUpdate;
     private round;

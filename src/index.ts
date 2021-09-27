@@ -2,6 +2,8 @@ import PerformanceCheckerModule, { PerformanceCheckerData } from './performance-
 import { Graph } from './graph';
 import { draggable } from './draggable';
 
+const CONTAINER_ID = 'performance-checker-graph-container';
+
 export default class PerformanceChecker {
 
   // - flag -
@@ -58,7 +60,19 @@ export default class PerformanceChecker {
     this.performanceCheckerModule.end();
   }
 
+  show() {
+    this.container.style.visibility = '';
+  }
+
+  hide() {
+    this.container.style.visibility = 'hidden';
+  }
+
   private removeDom() {
+    const ele = document.body.querySelector(`#${CONTAINER_ID}`);
+    if (ele) {
+      document.body.removeChild(ele);
+    }
     if (document.body.contains(this.container)) {
       document.body.removeChild(this.container);
     }
@@ -92,17 +106,17 @@ export default class PerformanceChecker {
   private createDom(): { container: HTMLDivElement; containerMemory: HTMLDivElement; labelFps: HTMLSpanElement; labelMemory: HTMLSpanElement; containerFps: HTMLDivElement } {
     // - container -
     const container = document.createElement('div');
-    container.id = 'graph-container';
+    container.id = CONTAINER_ID;
     container.setAttribute('style', 'position: absolute; top: 10px; right: 10px; user-select: none');
     // - container:fps -
     const containerFps = document.createElement('div');
     containerFps.setAttribute('style', 'width: 200px; height: 200px');
-    containerFps.id = 'graph-container-fps';
+    containerFps.id = 'performance-checker-graph-container-fps';
     const labelFps = document.createElement('span');
     // - container:memory -
     const containerMemory = document.createElement('div');
     containerMemory.setAttribute('style', 'width: 200px; height: 200px');
-    containerMemory.id = 'graph-container-memory';
+    containerMemory.id = 'performance-checker-graph-container-memory';
     const labelMemory = document.createElement('span');
     // append
     container.appendChild(labelFps);
