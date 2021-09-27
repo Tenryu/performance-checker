@@ -23,11 +23,11 @@ export default class PerformanceChecker {
   private graphFps: Graph;
   private graphMemory: Graph;
 
-  constructor() {
+  constructor(opt?: { right?: number, top?: number }) {
     this.initialized = false;
     this.performanceCheckerModule = new PerformanceCheckerModule();
     // - create dom -
-    const dom = this.createDom();
+    const dom = this.createDom(opt);
     document.body.appendChild(dom.container);
     draggable(dom.container);
     this.container = dom.container;
@@ -103,11 +103,13 @@ export default class PerformanceChecker {
     return Math.round(num * 100) / 100;
   }
 
-  private createDom(): { container: HTMLDivElement; containerMemory: HTMLDivElement; labelFps: HTMLSpanElement; labelMemory: HTMLSpanElement; containerFps: HTMLDivElement } {
+  private createDom(opt?: { right?: number, top?: number }) {
+    const right = opt?.right ||   10;
+    const top = opt?.right ||   10;
     // - container -
     const container = document.createElement('div');
     container.id = CONTAINER_ID;
-    container.setAttribute('style', 'position: absolute; top: 10px; right: 10px; user-select: none');
+    container.setAttribute('style', `position: absolute; top: ${top}px; right: ${right}px; user-select: none`);
     // - container:fps -
     const containerFps = document.createElement('div');
     containerFps.setAttribute('style', 'width: 200px; height: 200px');

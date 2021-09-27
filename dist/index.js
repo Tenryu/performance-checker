@@ -8,11 +8,11 @@ const graph_1 = require("./graph");
 const draggable_1 = require("./draggable");
 const CONTAINER_ID = 'performance-checker-graph-container';
 class PerformanceChecker {
-    constructor() {
+    constructor(opt) {
         this.initialized = false;
         this.performanceCheckerModule = new performance_checker_1.default();
         // - create dom -
-        const dom = this.createDom();
+        const dom = this.createDom(opt);
         document.body.appendChild(dom.container);
         (0, draggable_1.draggable)(dom.container);
         this.container = dom.container;
@@ -75,11 +75,13 @@ class PerformanceChecker {
     round(num) {
         return Math.round(num * 100) / 100;
     }
-    createDom() {
+    createDom(opt) {
+        const right = opt?.right || 10;
+        const top = opt?.right || 10;
         // - container -
         const container = document.createElement('div');
         container.id = CONTAINER_ID;
-        container.setAttribute('style', 'position: absolute; top: 10px; right: 10px; user-select: none');
+        container.setAttribute('style', `position: absolute; top: ${top}px; right: ${right}px; user-select: none`);
         // - container:fps -
         const containerFps = document.createElement('div');
         containerFps.setAttribute('style', 'width: 200px; height: 200px');
