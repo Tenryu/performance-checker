@@ -10,6 +10,8 @@ export const draggable = (ele: HTMLElement | null) => {
   let initialX = 0;
   let initialY = 0;
 
+  ele.style.cursor = 'grab';
+
   const onMousedown = (e: any) => {
     if (e.type === 'touchstart') {
       initialX = e.touches[0].clientX - offsetX;
@@ -22,6 +24,7 @@ export const draggable = (ele: HTMLElement | null) => {
       window.addEventListener('mousemove', onMouseMove);
       window.addEventListener('mouseup', onMouseUp);
     }
+    ele.style.cursor = 'grabbing';
   };
 
   const onMouseMove = (e: any) => {
@@ -48,6 +51,7 @@ export const draggable = (ele: HTMLElement | null) => {
       window.removeEventListener('mousemove', onMouseMove);
       window.removeEventListener('mouseup', onMouseUp);
     }
+    ele.style.cursor = 'grab';
   };
 
   ele.addEventListener('mousedown', onMousedown);
