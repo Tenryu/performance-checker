@@ -20,7 +20,7 @@
     "url": "https://github.com/Tenryu/performance-checker/issues"
   },
   "homepage": "https://github.com/Tenryu/performance-checker#readme",
-  "description": "",
+  "description": "This module measures and graphically displays the performance of the web browser.",
   "devDependencies": {
     "@types/c3": "^0.7.6",
     "typescript": "^4.4.3"
