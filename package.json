@@ -2,9 +2,7 @@
   "name": "@tenryu/performance-checker",
   "version": "0.1.0",
   "main": "dist/index.js",
-  "files": [
-    "dist"
-  ],
+  "type": "module",
   "publishConfig": {
     "access": "public"
   },
@@ -24,6 +22,11 @@
   "homepage": "https://github.com/Tenryu/performance-checker#readme",
   "description": "",
   "devDependencies": {
+    "@types/c3": "^0.7.6",
     "typescript": "^4.4.3"
+  },
+  "dependencies": {
+    "c3": "^0.7.20",
+    "eventemitter3": "^4.0.7"
   }
 }
