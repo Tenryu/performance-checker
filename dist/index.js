@@ -76,8 +76,8 @@ class PerformanceChecker {
         return Math.round(num * 100) / 100;
     }
     createDom(opt) {
-        const right = opt?.right ?? 10;
-        const top = opt?.top ?? 10;
+        const right = opt?.right === undefined ? 10 : opt?.right;
+        const top = opt?.top === undefined ? 10 : opt?.top;
         // - container -
         const container = document.createElement('div');
         container.id = CONTAINER_ID;
