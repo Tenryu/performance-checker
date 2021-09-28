@@ -1,0 +1,2 @@
+
+require('./copy-to-dist');
