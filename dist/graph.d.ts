@@ -1,4 +1,4 @@
-import '../node_modules/c3/c3.css';
+import './c3.css';
 export declare type GraphData = {
     [key: string]: number[];
 };
