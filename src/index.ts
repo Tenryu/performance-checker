@@ -104,8 +104,8 @@ export default class PerformanceChecker {
   }
 
   private createDom(opt?: { right?: number, top?: number }) {
-    const right = opt?.right ||   10;
-    const top = opt?.right ||   10;
+    const right = opt?.right ?? 10;
+    const top = opt?.top ?? 10;
     // - container -
     const container = document.createElement('div');
     container.id = CONTAINER_ID;
