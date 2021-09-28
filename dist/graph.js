@@ -21,7 +21,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Graph = void 0;
 const c3 = __importStar(require("c3"));
-require("../node_modules/c3/c3.css");
+require("./c3.css");
 class Graph {
     constructor(id) {
         this.chart = c3.generate({
