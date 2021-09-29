@@ -78,10 +78,11 @@ class PerformanceChecker {
     createDom(opt) {
         const right = opt?.right === undefined ? 10 : opt?.right;
         const top = opt?.top === undefined ? 10 : opt?.top;
+        const zIndex = opt?.zIndex === undefined ? 10 : opt?.zIndex;
         // - container -
         const container = document.createElement('div');
         container.id = CONTAINER_ID;
-        container.setAttribute('style', `position: absolute; top: ${top}px; right: ${right}px; user-select: none`);
+        container.setAttribute('style', `position: absolute; top: ${top}px; right: ${right}px; user-select: none; z-index: ${zIndex}`);
         // - container:fps -
         const containerFps = document.createElement('div');
         containerFps.setAttribute('style', 'width: 200px; height: 200px');
