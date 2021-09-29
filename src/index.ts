@@ -2,6 +2,12 @@ import PerformanceCheckerModule, { PerformanceCheckerData } from './performance-
 import { Graph } from './graph';
 import { draggable } from './draggable';
 
+type Option = {
+  right?: number,
+  top?: number,
+  zIndex?: number,
+};
+
 const CONTAINER_ID = 'performance-checker-graph-container';
 
 export default class PerformanceChecker {
@@ -23,7 +29,7 @@ export default class PerformanceChecker {
   private graphFps: Graph;
   private graphMemory: Graph;
 
-  constructor(opt?: { right?: number, top?: number }) {
+  constructor(opt?: Option) {
     this.initialized = false;
     this.performanceCheckerModule = new PerformanceCheckerModule();
     // - create dom -
@@ -103,13 +109,17 @@ export default class PerformanceChecker {
     return Math.round(num * 100) / 100;
   }
 
-  private createDom(opt?: { right?: number, top?: number }) {
+  private createDom(opt?: Option) {
     const right = opt?.right === undefined ? 10 : opt?.right;
     const top = opt?.top === undefined ? 10 : opt?.top;
+    const zIndex = opt?.zIndex === undefined ? 10 : opt?.zIndex;
     // - container -
     const container = document.createElement('div');
     container.id = CONTAINER_ID;
-    container.setAttribute('style', `position: absolute; top: ${top}px; right: ${right}px; user-select: none`);
+    container.setAttribute(
+      'style',
+      `position: absolute; top: ${top}px; right: ${right}px; user-select: none; z-index: ${zIndex}`,
+    );
     // - container:fps -
     const containerFps = document.createElement('div');
     containerFps.setAttribute('style', 'width: 200px; height: 200px');
