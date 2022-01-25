@@ -194,14 +194,16 @@ class PerformanceCheckerModule extends eventemitter3_1.EventEmitter {
      * @private
      */
     getFpsData() {
-        return this.subModules.fps?.getData() || fps_performance_checker_1.FpsPerformanceChecker.ZERO_DATA;
+        var _a;
+        return ((_a = this.subModules.fps) === null || _a === void 0 ? void 0 : _a.getData()) || fps_performance_checker_1.FpsPerformanceChecker.ZERO_DATA;
     }
     /**
      * メモリー関連のデータ取得
      * @private
      */
     getMemoryData() {
-        return this.subModules.memory?.getData() || memory_performance_checker_1.default.ZERO_DATA;
+        var _a;
+        return ((_a = this.subModules.memory) === null || _a === void 0 ? void 0 : _a.getData()) || memory_performance_checker_1.default.ZERO_DATA;
     }
 }
 exports.default = PerformanceCheckerModule;
