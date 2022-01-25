@@ -76,9 +76,9 @@ class PerformanceChecker {
         return Math.round(num * 100) / 100;
     }
     createDom(opt) {
-        const right = opt?.right && 10;
-        const top = opt?.top && 10;
-        const zIndex = opt?.zIndex && 10;
+        const right = (opt === null || opt === void 0 ? void 0 : opt.right) && 10;
+        const top = (opt === null || opt === void 0 ? void 0 : opt.top) && 10;
+        const zIndex = (opt === null || opt === void 0 ? void 0 : opt.zIndex) && 10;
         // - container -
         const container = document.createElement('div');
         container.id = CONTAINER_ID;
